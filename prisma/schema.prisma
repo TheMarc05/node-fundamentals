@@ -21,7 +21,6 @@ model User {
 model Product {
   id Int @id @default(autoincrement())
   description String
-  store String
   barcode String
   created DateTime
   Price Price[]
@@ -33,6 +32,7 @@ model Price {
   id Int @id @default(autoincrement())
   value Decimal
   created DateTime
+  store String
   product Product @relation(fields:[productId], references:[id])
   productId Int
   createdBy User? @relation(fields: [createdById], references: [id])
